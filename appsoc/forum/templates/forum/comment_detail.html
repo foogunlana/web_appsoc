@@ -1,0 +1,25 @@
+{% load forum_tags %}
+
+<div class="" style='font-size:12px;float:left;'>
+	{{ comment|fetch_comment_item:'time'|date_unix }}
+</div>
+<div style="font-size:18px;float:right;padding:20px;">
+	<h6>
+	Comment by: <a href="{% url 'forum:sort_user' sort=comment|fetch_comment_item:'author' %}">{{ comment|fetch_comment_item:'author'}}</a>
+	</h6>
+</div>
+<br>
+<div class="comment">
+	<div class="row">
+		<div class="columns small-12 medium-8">
+			<div class="comment_body">
+				{% if posts %}
+				{{ comment|fetch_comment_item:'body'|urlize|safe|linebreaks|slice:':100'}}<a href="{% url 'forum:post_detail' pk=post.post_id %}">&hellip;  See more</a>
+				{% else %}
+				{{ comment|fetch_comment_item:'body'|urlize|safe|linebreaks}}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<br>

@@ -1,0 +1,53 @@
+{% extends 'appsoc/base.html' %}
+{% block body_block %}
+<div class="row fill ">
+	<br>
+	<br>
+	<div class="columns small-12 small-centered medium-9 hide-for-large">
+		<div class="row">
+			<div class="columns small-12 medium-12 large-6 ">
+				<a href="{% url 'forum:home' %}">
+					<div id='sort' class='button shadowbox out-shadow' style="float:left;border-top-right-radius:0px;border-bottom-right-radius:0px;padding-left:20px;padding-right:20px;">
+						Idea bank
+					</div>
+				</a>
+				<a href="{% url 'forum:sort_posts' sort='time' %}">
+					<div id='sort' class='button shadowbox out-shadow {% ifequal sort "time" %}active{% endifequal %}' style="float:left;border-radius:0px;padding-left:15px;padding-right:15px;">
+						Most recent
+					</div>
+				</a>
+				<a href="{% url 'forum:sort_posts' sort='likes' %}">
+					<div id='sort' class='button shadowbox out-shadow {% ifequal sort "likes" %}active{% endifequal %}' style="float:left;border-top-left-radius:0px;border-bottom-left-radius:0px;padding-left:15px;padding-right:15px;">
+						Top 10 posts
+					</div>
+				</a>
+			</div>
+			<div class="columns small-12 medium-12 large-6" >
+				<a href="{% url 'forum:sort_user' sort=user.username %}">
+					<div id='sort' class=' button shadowbox out-shadow {% ifequal sort user.username %}active{% endifequal %}' style="float:right;border-top-left-radius:0px;border-bottom-left-radius:0px;padding-left:15px;padding-right:15px;">
+						Posted
+					</div>
+				</a>
+				<a href="{% url 'forum:sort_user' sort='mybanks' %}">
+					<div id='sort' class=' button shadowbox out-shadow {% ifequal sort "mybanks" %}active{% endifequal %}' style="float:right;border-radius:0px;padding-left:15px;padding-right:15px;">
+						Banked
+					</div>
+				</a>
+				<a href="#">
+					<div id='sort' data-reveal-id="new_post_modal" style="float:right;border-top-right-radius:0px;border-bottom-right-radius:0px;padding-left:20px;padding-right:20px;" class=" button shadowbox out-shadow">
+						Post
+					</div>
+				</a>
+				<!-- Reveal Modals begin -->
+				<div id="new_post_modal" class="reveal-modal coolmodal" data-reveal>
+				{% include 'forum/post_modal.html' %}
+				<a class="close-reveal-modal">&#215;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% block home_block %}{% endblock %}
+{% endblock %}

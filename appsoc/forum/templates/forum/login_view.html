@@ -1,0 +1,48 @@
+{% extends 'appsoc/base.html' %}
+<!-- {% block title %}Login{% endblock %} -->
+{% block body_block %}
+	<div class="row">
+		<div class="columns small-12 medium-6 large-6 small-centered">
+			<br>
+			<br>
+			<br>
+			<hr>
+			<div class="popup">
+				<h3>Login to AppSoc</h3>
+				{% if errors %}
+					<table>
+						{% for error in errors %}
+							<tr><td><strong>{{ error }}</strong></td></tr>
+						{% endfor %}
+					</table>
+				{% endif %}
+				<form id="login_form" method="post" action="{% url 'login_view' %}"
+					enctype="multipart/form-data">
+					{% csrf_token %}
+					<label for="username" >Username</label>
+					{{ login_form.username }}
+					<label for="username" >Password</label>
+					{{ login_form.password }}
+					<button type="submit" class="shadowbox" name="submit" value="login" style="min-width:100%;">Login</button>
+				</form>
+				<div class="row">
+					<div class="columns small-12 small-centered">
+						<strong>
+						<div>
+							<strong >
+								Don't have an account??
+							</strong>
+							<br>
+							<br>
+							<p >
+							Click to <a href="{% url 'register' %}">Sign Up</a> to AppSoc and get access to the IdeaBank
+							</p>
+						</div>
+						</strong>
+					</div>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+
+<form method="POST" action="{% url 'forum:post' %}">
+	{% csrf_token %}
+	<h6>
+		Title
+	</h6>
+	{{ post_form.title }}
+	<h6>
+		Body
+	</h6>
+	{{ post_form.body }}	
+
+	<button class="confirm-submission" type="submit" name="submit" value="submit" style="padding:15px;">Post </button>
+</form>

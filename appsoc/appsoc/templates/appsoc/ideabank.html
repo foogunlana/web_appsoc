@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/static/css/normalize.css">
+		<link rel="stylesheet" href="/static/css/foundation.css">
+		<link rel="icon" type="image/ico" href="/static/images/favicon.ico"></link> 
+		<!-- <link rel="shortcut icon" href="/static/images\favicon.ico"> -->
+		<script src="/static/js/vendor/modernizr.js"></script>
+		<title>Bank</title>
+		<style>
+			body{
+				background-color: #efefef;
+			}
+			.box{
+				width:500px;
+				height:500px;
+				box-shadow: 0px 0px 4px 1px #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<div class="small-6 columns box">
+				<img src="/static/images/ideabank2.jpg">
+			</div>
+			<div class="small-6 columns">
+				<h1>Coming Soon</h1>
+				<p>A place where we can share our ideas with the world ... or maybe just other members ;-D</p>
+				<p>Want to know more? then <strong><a href="{% url 'register'%}">Sign Up</a></strong> to our mailing list. Feel free to <strong><a href="{% url 'contact'%}">contact us</a></strong> directly
+			</div>
+			<div class="small-6 columns">
+				<br>
+				<br>
+				<form>
+					<button Type="button" VALUE="Back" onClick="history.go(-1);return true;" style="background-color:#efefef;border-radius:20px;color:black;font-size:20px;border:solid;box-shadow:0px 0px 10px 1px;">Back</button>
+				</form>
+			</div>
+		</div>
+		<script src="/static/js/vendor/jquery.js"></script>
+		<script src="/static/js/foundation.min.js"></script>
+		<script>
+		$(document).foundation();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'forum/index.html' %}
+{% block home_block %}
+	{% load forum_tags %}
+	<div class="row fill" >
+		<div class="columns small-12 medium-10 small-centered">
+			<div class="row">
+				<div class="columns small-12 large-8">
+					<div class="row">
+						<div class="columns small-11 small-centered">
+							{% include 'forum/post_feed.html' %}
+							<br><br>
+						</div>
+					</div>
+				</div>
+				<div class="columns hide-for-small hide-for-medium large-3">
+					<div class="row">
+						<div class="columns small-12 " >
+							{% include 'forum/dashboard.html' %}
+							<br><br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

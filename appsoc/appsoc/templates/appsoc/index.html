@@ -1,0 +1,66 @@
+{% extends 'appsoc/base.html' %}
+{% block title %}Home -{% endblock %}
+{% block body_block %}
+  <div class="row heading" style="height:50%; min-height:400px;">
+    <div class="columns small-12 medium-6 large-6" style='padding:0px;'>
+      <img src="/static/images/IC.jpg" style="height:100%;width:600px;">
+    </div>
+    <div class=" columns hide-for-small hide-for-medium large-6">
+      <h1 style='font-size:80px;color:white;font-weight:lighter;float:right;padding:20px;'>
+      App Society
+      </h1>
+    </div>
+  </div>
+  <br>
+  <div class = "row section1" style="padding:5%;padding-bottom:10px;padding-top:20px;">
+    <div class="columns small-12 medium-8 large-8">
+      <div class="row">
+        <div class="columns small-6">
+          <img src = "/static/images/android.png" style="height:128px;float:right">
+        </div>
+        <div class="columns small-6">
+          <img src = "/static/images/apple.gif" style="height:128px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-12 ">
+          <h1 style='font-size:30px;font-weight:lighter;color:black;padding-top:80px'>
+          Welcome to AppSoc,
+          Please register your email in the <a href="{% url 'register' %}"><strong>'Sign Up'</strong></a> tab to join our mailing list!
+          We will keep you updated on meetings and events
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="columns hide-for-small medium-4 large-4">
+      <img src="/static/images/1.gif" >
+    </div>
+  </div>
+  <br>
+  <div class = "row section2">
+    <div class="row">
+      <div class="columns small-10 medium-3 large-3">
+        <img src="/static/images/1.gif" style="height:relative;" >
+      </div>
+      <div class=" columns small-12 medium-8 large-8" style="padding-top:50px;float:left;">
+        <ul>
+          <h2>
+          What's AppSoc?
+          </h2>
+          <p>App Society, formerly known as Mobile Applications Society, is a community of bright minds, hackers, and innovators based in Imperial College, London. We're devoted to sharing our knowledge of programming to anyone interested. Visit our <strong><a href="{% url 'about' %}">About Us</a></strong> page for more information.</p>
+          <h2>
+          <h2>
+          What we do
+          </h2>
+          <p>AppSoc teaches students to make apps through fun lessons, and exciting competitions. Our members get free lessons in iOS and Android programming. Visit our <strong><a href="{% url 'learn' %}">Learn</a></strong> page for more information on our lessons.</p>
+          <h2>
+          Where to find us
+          </h2>
+          <p>You can find us on campus at Imperial College. We will let you know our times and venues through the mailing list so please <strong><a href="{% url 'register' %}">Sign Up</a></strong>. To contact us directly visit the <strong><a href="{% url 'contact' %}">Contact Us</a></strong> page.</p>
+          <h2>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+{% endblock %}

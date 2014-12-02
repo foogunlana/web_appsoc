@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<html class="no-js" lang="en" >
+	<head>
+		<title>{% block title %}{% endblock %}AppSoc</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/static/css/normalize.css">
+		<link rel="stylesheet" href="/static/css/foundation.css">
+		<link rel="icon" type="image/ico" href="/static/images/favicon.png"></link>
+		<link rel="shortcut icon" href="/static/images\favicon.png">
+		<link rel="stylesheet" href="/static/css/appsoc.css">
+		<script src="/static/js/vendor/modernizr.js"></script>
+		<style>
+		.heading{
+		background-color:{{ color|default:'#A60000'}};
+		}
+		</style>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div class="fixed">
+			<nav class="top-bar " data-topbar role="navigation">
+				<ul class="title-area">
+					<li class="name ">
+						<h1><a href="{% url 'index' %}">AppSoc</a></h1>
+					</li>
+					<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+				</ul>
+				<section class="top-bar-section">
+					<ul class="left">
+						
+					</ul>
+					<ul class="right">
+						<li><a href="{% url 'index' %}" class = "top-tab">Home</a></li>
+						<li><a href="{% url 'learn' %}" class = "top-tab">Learn</a></li>
+						<li><a href="{% url 'register' %}" class = "top-tab">Sign Up</a></li>
+						<li><a href="{% url 'forum:home' %}" class = "top-tab">Idea bank</a></li>
+						<li class="has-dropdown">
+							<a href="#">About Us</a>
+							
+							<ul class="dropdown">
+								<li><a href="{% url 'about' %}">Who we are</a></li>
+								<li><a href="{% url 'contact' %}">Find/Talk to us</a></li>
+								<li><a href="https://www.facebook.com/groups/197108390473166/">Find us on Facebook</a></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+		
+		{% block forum_block %}{% endblock %}
+		
+		<div class = "row section1">
+			<div class="columns small-6 small-centered">
+				<div class="row">
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="columns small-12 medium-6 large-4">
+						<h4>
+						AppSoc
+						</h4>
+						<ul>
+							<li><strong><a href="{% url 'about' %}">About Us</a></strong> </li>
+							<li><strong><a href="{% url 'contact' %}">Contact Us</a></strong></li>
+							<li><strong><a href="{% url 'register' %}">Sign Up</a></strong></li>
+						</ul>
+					</div>
+					<div class="columns small-12 medium-6 large-4">
+						<br>
+						<br>
+						<ul>
+							<li><strong><a href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401">Find us</a></strong> on Facebook</li>
+							<li><strong><a href="{% url 'learn' %}">Learn </a></strong>to code</li>
+							<li><strong><a href="{% url 'bank' %}">Idea Bank</a></strong> project</li>
+						</ul>
+						<br>
+						<br>
+						<div class="fb-like" data-href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401" data-width="20" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+					</div>
+					<div class="columns show-for-large large-4 ">
+						<br>
+						<br>
+						Royal School of Mines Building,
+						Imperial College London,
+						Prince Consort Road,
+						South Kensington,
+						London SW7 2BP
+						United Kingdom
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/vendor/jquery.js"></script>
+	<script src="/static/js/foundation.min.js"></script>
+	<script>
+	$(document).foundation();
+	</script>
+</body>
+</html>

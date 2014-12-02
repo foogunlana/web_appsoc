@@ -1,0 +1,10 @@
+
+
+<h6>
+	Comment:
+</h6>
+<form method="POST" action="{% url 'forum:comment' %}">
+	{% csrf_token %}
+	{{ comment_form.body }}	
+	<button class="button " type="submit" name="post_id" value="{{ post }}" style="padding:15px;">Comment</button>
+</form>
