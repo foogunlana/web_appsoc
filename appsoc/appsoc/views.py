@@ -10,15 +10,16 @@ from django.contrib.auth import login, logout
 from mongoengine.queryset import DoesNotExist
 
 from appsoc import params
-import tasks
+# import tasks
 
 
 def index(request):
-    p = tasks.add.delay(5, 6)
+    # p = tasks.add.delay(5, 6)
     color = params.colors['home']
     return render(request, 'appsoc/index.html', {'color': color})
 
 
+@login_required(login_url='/login')
 def github(request):
     return render(request, 'appsoc/github.html', {})
 
