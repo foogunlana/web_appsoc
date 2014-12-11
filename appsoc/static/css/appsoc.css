@@ -96,6 +96,20 @@ max-width: initial;
   background:#DCF594;
 }
 
+
+.hub_container{
+  padding:50px;
+  max-width:800px;
+  border-radius: 10px;
+  background:white;
+}
+
+#hub{
+  background:#D7EEF7;
+}
+
+
+
 .dashboard{
   padding:20px;
   border-radius:10px;

@@ -81,7 +81,7 @@ def login_view(request):
                     raise Exception
 
                 if user:
-                    return HttpResponseRedirect(reverse('forum:home'))
+                    return HttpResponseRedirect(reverse('github'))
                 else:
                     errors.append('Oops! something went wrong. please refresh')
             else:

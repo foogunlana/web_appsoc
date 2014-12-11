@@ -1,149 +1,27 @@
 {% extends 'appsoc/base.html' %}
 {% block body_block %}
   <link rel="stylesheet" href="/static/css/justas_styles.css">
-  <div style="padding:20px;" id="hub" >
-    <div class=" row section2 "style="padding:20px;border-radius:10px;opacity:0.9;">
-    <br><br>
-    <div class="columns hide-for-small medium-5" style="position:fixed">
-      <div style="padding-left:50px;max-width:400px;">
-        <h1>AppSoc Hub</h1>
-        <p >An independent mobile development society @ Imperial College London.</p>
-        
-        <p class="view"><a href="https://github.com/ICAppSoc">View Our GitHub Profile</a></p>
-        <p class="view"><a href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401">Visit Our Facebook Page</a></p>
-        <p class="view"><a href="https://www.facebook.com/groups/197108390473166/">Join Our Facebook Group</a></p>
+  <div style="" id="hub" >
+    <div class="row"style="opacity:0.9;">
+      <br>
+      <div class="columns hide-for-small medium-5 " style="position:fixed;" >
+        {% include 'appsoc/blocks/hub_header.html'%}
       </div>
-    </div>
-    <div class="columns small-12 medium-7">
-      <div class="row">
-        <div class="columns show-for-small ">
-          <div style="float:left;width:300px;">
-            <h1>AppSoc Hub</h1>
-            <p >An independent mobile development society @ Imperial College London.</p>
-            
-            <p class="view"><a href="https://github.com/ICAppSoc">View Our GitHub Profile</a></p>
-            <p class="view"><a href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401">Visit Our Facebook Page</a></p>
-            <p class="view"><a href="https://www.facebook.com/groups/197108390473166/">Join Our Facebook Group</a></p>
+      <div class="columns small-12 medium-7">
+        <div class="row">
+          <div class="columns show-for-small ">
+            {% include 'appsoc/blocks/hub_header.html'%}
+            <hr>
           </div>
-          <hr>
         </div>
+        <section class="bullets">
+          {% include 'appsoc/blocks/ios_session_one.html' %}
+          <br>
+          <hr>
+          {% include 'appsoc/blocks/android_session_one.html' %}
+          <hr>
+        </section>
       </div>
-      <section class="bullets">
-        <h3><a name="ios-source" class="anchor" href="#ios-source"><span class="octicon octicon-link"></span></a>iOS Session One</h3>
-        <h3>
-        App Lifecycle
-        </h3>
-        <p>
-        You can download the slides over <a href="https://drive.google.com/file/d/0B6t3krHJdAvlRktwMDVCOVUyc00/view?usp=sharing" target="_blank">here</a>.
-        <br><br>
-        Be sure to have a generic understanding of what's actually going on when we start and use an app. The key concepts to take with you from this part of the session are:
-        </p><ul>
-          <li>The idea behind the UIApplication object</li>
-          <li>The use of the AppDelegate</li>
-          <li>The purpose of UIViewController (we will cover much more about it later on)</li>
-          <li>Methods to execute code when our app transitions between execution states</li>
-        </ul>
-        We will cover the super-duper-really-important Delegate pattern and UITableView in the next iOS session! Be sure to practice and come along.
-        <p></p>
-        <h3>
-        Star Wars Quotes project
-        </h3>
-        <p>
-        <a href="https://github.com/ICAppSoc/Star-Wars-Quotes-iOS">Find here and select Download ZIP to the right of the page.</a>
-        Unzip, then open the project file with the blue icon (<code>.xcodeproj</code>)
-        </p>
-        
-        <hr>
-        
-        <h3><a name="android-source" class="anchor" href="#android-source"><span class="octicon octicon-link"></span></a>Android Session One - The Force Awakens</h3>
-        <h3>
-        Please download and install the following tools, in order:
-        </h3>
-        <p>
-        <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java Development Kit 7+</a> -
-        once installed, select <code>Start menu &gt; Computer &gt; System Properties &gt; Advanced System Properties</code>.
-        Then open <code>Advanced tab &gt; Environment Variables</code> and add a new system variable JAVA_HOME that points to your JDK folder,
-        for example C:\Program Files\Java\jdk1.7.0_40.
-        </p>
-        <p>
-        <a href="https://developer.android.com/sdk/index.html">Android SDK Tools</a> - under <b>GET THE SDK FOR AN EXISTING IDE</b>.
-        Run the installer and keep note of the location where you install it.
-        </p>
-        <p>
-        <a href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a> - this is now a portable application,
-        i.e. you do not install it but just run it from /bin/studio(64).exe. When you run it for the first time, go to
-        <code>Configure &gt; Project Defaults &gt; Project Structure</code> and enter the location of your Android SDK folder
-        that you noted in the previous step. If you have a project open, you can change the SDK location under <code>File &gt; Project Structure</code>.
-        </p>
-        
-        <h3>
-        To start developing, launch the Android SDK Manager and install:
-        </h3>
-        <p>
-        Under Tools
-        </p><ul>
-          <li>Android SDK Tools</li>
-          <li>Android SDK Platform-tools</li>
-          <li>Android SDK Build-tools</li>
-        </ul>
-        <p></p>
-        <p>
-        Under Android 5.0
-        </p><ul>
-          <li>SDK Platform</li>
-          <li>Intel x86 Atom System Image</li>
-          <li>Google APIs</li>
-        </ul>
-        <p></p>
-        <p>
-        Under Extras
-        </p><ul>
-          <li>Android Support Repository</li>
-          <li>Android Support Library</li>
-          <li>Intel x86 Emulator Accelerator (HAXM)</li>
-        </ul>
-        <p></p>
-        
-        <h3>
-        To run applications, you have two choices:
-        </h3>
-        <p>
-        <a href="http://developer.android.com/tools/device.html">Using physical Android device</a>
-        </p>
-        <p>
-        Using virtual Android device (AVD)
-        </p><ol>
-          <li>Go to %ANDROID_SDK%/extras/intel/HAXM and run the installer.</li>
-          <li>Find and run the Android Virtual Device (AVD) Manager.</li>
-          <li>Go through the wizard to create a virtual device, choosing the x86 image.</li>
-        </ol>
-        <p></p>
-        <p>Then just click Run in Android Studio, and if the project is error-free, it will let you choose your hardware device or launch your emulator.</p>
-        
-        <h3>
-        Yoda App skeleton project
-        </h3>
-        <p>
-        <a href="https://github.com/ICAppSoc/Yoda-Skeleton-Android">Find here and select Download ZIP to the right of the page.</a>
-        Unzip, then, in Android Studio, select File &gt; Import Project and select the build.gradle file at the root of the skeleton project.
-        </p>
-        
-        <h3>
-        Yoda App complete project
-        </h3>
-        <p>
-        <a href="https://github.com/ICAppSoc/Yoda-Complete-Android">Find here and select Download ZIP to the right of the page.</a>
-        Unzip and import as before.
-        </p>
-        <p>
-        Improve on the app.
-        <a href="http://www.higherpass.com/android/tutorials/working-with-images-in-android/">Add an image of Yoda.</a>
-        Change the text colour.
-        <a href="http://code.tutsplus.com/tutorials/android-sdk-using-the-text-to-speech-engine--mobile-8540">Add text-to-speech.</a>
-        Go wild and show it off in the next session! (If you manage to add text-to-speech, definitely tell us - never tried it ourselves!)
-        </p>
-      </section>
     </div>
-  </div>
   </div>
 {% endblock %}
