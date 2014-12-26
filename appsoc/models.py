@@ -5,7 +5,7 @@ connect('appsoc')
 
 
 class Member(Document):
-    name = StringField(max_length=20)
+    # name = StringField(max_length=20)
     email = StringField(max_length=20)
 
     def __unicode__(self):

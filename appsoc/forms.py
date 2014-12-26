@@ -9,10 +9,10 @@ class RegisterForm(forms.Form):
     alphanumeric = RegexValidator(
         r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
     name = forms.CharField(
-        label='Your username', max_length=30, required=True, validators=[alphanumeric])
+        label='Your username', max_length=30, required=False, validators=[alphanumeric])
     email = forms.EmailField(label='Your email', max_length=30, required=True)
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirm = forms.CharField(widget=forms.PasswordInput)
+    # password = forms.CharField(widget=forms.PasswordInput)
+    # confirm = forms.CharField(widget=forms.PasswordInput)
 
     def clean_name(self):
         name = self.cleaned_data['name']
