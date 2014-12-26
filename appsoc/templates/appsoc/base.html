@@ -36,29 +36,12 @@
                     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
                 </ul>
                 <section class="top-bar-section">
-                    <ul class="left">
-                        {% if user.is_authenticated %}
-                            <li id="divider"></li>
-                            <li>
-                                <a href="#" style="font-size:18px;color:#2980F0;">{{ user.username }}</a>
-                            </li>
-                        {% endif %}
-                    </ul>
                     <ul class="right">
                         <li><a href="{% url 'index' %}" class = "top-tab">Home</a></li>
                         <li><a href="{% url 'learn' %}" class = "top-tab">Learn</a></li>
                         <li><a href="{% url 'github' %}" class = "top-tab">Hub</a></li>
-                        <li><a href="{% url 'register' %}" class = "top-tab">Sign Up</a></li>
+                        <li><a href="{% url 'register' %}" style="border-radius:3px;background-color:#2980F0;" class = "top-tab">Sign Up</a></li>
                         <li>
-                            {% if user.is_authenticated %}
-                                <a class="top-tab shadowbox" href="{% url 'logout_view' %}" style="border-radius:3px;background-color:#FF4747;">
-                                    logout
-                                </a>
-                            {% else %}
-                                <a class="top-tab shadowbox" href="{% url 'login_view' %}" style="border-radius:3px;background-color:#2980F0;">
-                                    login
-                                </a>
-                            {% endif %}
                         </li>
                         <li class="has-dropdown">
                             <a href="#">About Us</a>

@@ -28,17 +28,17 @@
                               {% endif %}
                               <form action="{% url 'register' %}" method="post" >
                                     {% csrf_token %}
-                                    <label for="name">Choose a username:<strong style="color:red;">{{ register_form.name.errors }}</strong></label>
-                                    {{ register_form.name }}
+                                    <!-- <label for="name">Choose a username:<strong style="color:red;">{{ register_form.name.errors }}</strong></label>
+                                    {{ register_form.name }} -->
 
                                     <label for="email">Email:<strong style="color:red;">{{ register_form.email.errors }}</strong></label>
                                     {{ register_form.email }}
 
-                                    <label for="password">Password:<strong style="color:red;">{{ register_form.password.errors }}</strong></label>
+                                    <!-- <label for="password">Password:<strong style="color:red;">{{ register_form.password.errors }}</strong></label>
                                     {{ register_form.password }}
 
                                     <label for="confirm">Confirm password:<strong style="color:red;">{{ register_form.confirm.errors }}</strong></label>
-                                    {{ register_form.confirm }}
+                                    {{ register_form.confirm }} -->
                                     <div class="row">
                                           <div class="columns small-12">
                                                 <button type="submit" class="shadowbox" value="Sign me Up" style="min-width:100%;">Submit</button>

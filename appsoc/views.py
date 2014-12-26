@@ -19,7 +19,6 @@ def index(request):
     return render(request, 'appsoc/index.html', {'color': color})
 
 
-@login_required(login_url='/login')
 def github(request):
     return render(request, 'appsoc/github.html', {})
 
@@ -39,13 +38,13 @@ def register(request):
 
         if register_form.is_valid():
             try:
-                if register_form.cleaned_data['password'] != register_form.cleaned_data['confirm']:
-                    raise ValidationError('Passwords do not match')
+                # if register_form.cleaned_data['password'] != register_form.cleaned_data['confirm']:
+                #     raise ValidationError('Passwords do not match')
 
                 member = User()
-                member.username = register_form.cleaned_data['name']
+                # member.username = register_form.cleaned_data['name']
                 member.email = register_form.cleaned_data['email']
-                member.password = str(register_form.cleaned_data['password'])
+                # member.password = str(register_form.cleaned_data['password'])
                 member.save()
                 return render(request, 'appsoc/register.html', {
                     'register_form': register_form, 'success': 'You have successfully been added to the mailing list. We will contact you shortly'})
@@ -94,7 +93,6 @@ def login_view(request):
     return render(request, 'forum/login_view.html', {'login_form': login_form, 'errors': errors})
 
 
-@login_required(login_url='/login')
 def logout_view(request):
     logout(request)
     login_form = LoginForm()
