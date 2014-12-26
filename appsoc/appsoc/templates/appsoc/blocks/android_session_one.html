@@ -1,0 +1,122 @@
+<div class="out-shadow hub_container">
+    <h3>
+    <a name="android-source" class="anchor" href="#android-source">
+        <span class="octicon octicon-link">
+        
+        </span>
+    </a>
+    Android Session One - The Force Awakens
+    </h3>
+    <h3>
+    Please download and install the following tools, in order:
+    </h3>
+    <p>
+    <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">
+        Java Development Kit 7+
+    </a> -
+    once installed, select <code>Start menu &gt; Computer &gt; System Properties &gt; Advanced System Properties</code>.
+    Then open <code>Advanced tab &gt; Environment Variables</code> and add a new system variable JAVA_HOME that points to your JDK folder,
+    for example C:\Program Files\Java\jdk1.7.0_40.
+    </p>
+    <p>
+    <a href="https://developer.android.com/sdk/index.html">
+        Android SDK Tools
+    </a>
+    - under
+    <b>
+    GET THE SDK FOR AN EXISTING IDE
+    </b>.
+    Run the installer and keep note of the location where you install it.
+    </p>
+    <p>
+    <a href="http://developer.android.com/sdk/installing/studio.html">
+        Android Studio
+    </a> - this is now a portable application,
+    i.e. you do not install it but just run it from /bin/studio(64).exe. When you run it for the first time, go to
+    <code>
+    Configure &gt; Project Defaults &gt; Project Structure</code> and enter the location of your Android SDK folder
+    that you noted in the previous step. If you have a project open, you can change the SDK location under <code>File &gt; Project Structure
+    </code>.
+    </p>
+    
+    <h3>
+    To start developing, launch the Android SDK Manager and install:
+    </h3>
+    <p>
+    Under Tools
+    </p>
+    <ul>
+        <li>Android SDK Tools</li>
+        <li>Android SDK Platform-tools</li>
+        <li>Android SDK Build-tools</li>
+    </ul>
+    <p></p>
+    <p>
+    Under Android 5.0
+    </p>
+    <ul>
+        <li>SDK Platform</li>
+        <li>Intel x86 Atom System Image</li>
+        <li>Google APIs</li>
+    </ul>
+    <p></p>
+    <p>
+    Under Extras
+    </p>
+    <ul>
+        <li>Android Support Repository</li>
+        <li>Android Support Library</li>
+        <li>Intel x86 Emulator Accelerator (HAXM)</li>
+    </ul>
+    <p></p>
+    
+    <h3>
+    To run applications, you have two choices:
+    </h3>
+    <p>
+    <a href="http://developer.android.com/tools/device.html">
+        Using physical Android device
+    </a>
+    </p>
+    <p>
+    Using virtual Android device (AVD)
+    </p>
+    <ol>
+        <li>Go to %ANDROID_SDK%/extras/intel/HAXM and run the installer.</li>
+        <li>Find and run the Android Virtual Device (AVD) Manager.</li>
+        <li>Go through the wizard to create a virtual device, choosing the x86 image.</li>
+    </ol>
+    <p></p>
+    <p>Then just click Run in Android Studio, and if the project is error-free, it will let you choose your hardware device or launch your emulator.</p>
+    
+    <h3>
+    Yoda App skeleton project
+    </h3>
+    <p>
+    <a href="https://github.com/ICAppSoc/Yoda-Skeleton-Android">
+        Find here and select Download ZIP to the right of the page.
+    </a>
+    Unzip, then, in Android Studio, select File &gt; Import Project and select the build.gradle file at the root of the skeleton project.
+    </p>
+    
+    <h3>
+    Yoda App complete project
+    </h3>
+    <p>
+    <a href="https://github.com/ICAppSoc/Yoda-Complete-Android">
+        Find here and select Download ZIP to the right of the page.
+    </a>
+    Unzip and import as before.
+    </p>
+    <p>
+    Improve on the app.
+    <a href="http://www.higherpass.com/android/tutorials/working-with-images-in-android/">
+        Add an image of Yoda.
+    </a>
+    Change the text colour.
+    <a href="http://code.tutsplus.com/tutorials/android-sdk-using-the-text-to-speech-engine--mobile-8540">
+        Add text-to-speech.
+    </a>
+    Go wild and show it off in the next session! (If you manage to add text-to-speech, definitely tell us - never tried it ourselves!)
+    </p>
+</div>
