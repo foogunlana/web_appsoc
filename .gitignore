@@ -47,6 +47,9 @@ coverage.xml
 # Django stuff:
 *.log
 appsoc/appsoc/settings.py
+appsoc/appsoc/params.py
+writers/writers/settings.py
+writers/stears/params.py
 
 # Sphinx documentation
 docs/_build/
