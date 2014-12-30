@@ -12,13 +12,30 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    "/home/foogunlana/appsoc/appsoc/templates",
+)
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     "/Users/folusoogunlana/Documents/webProgramming/appsoc/static",
 )
 
+
+ALLOWED_HOSTS = [
+    'www.icappsoc.co.uk',  # Allow domain and subdomains
+    '.icappsoc.co.uk',  # Also allow FQDN and subdomains
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -56,7 +73,6 @@ INSTALLED_APPS = (
     'mongoengine.django.mongo_auth',  # MONGOENGINE
     # 'djcelery',  # Celery Async
     'appsoc',
-    'forum',
 )
 
 # MONGO ENGINE {

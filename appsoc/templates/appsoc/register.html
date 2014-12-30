@@ -21,11 +21,9 @@
                         <div class = "popup">
                               <h4 >Sign up to the App Society</h4>
                               <h4 style=" font-size:15px; color:green">Imperial College students</h4>
-                              {% if register_form.errors %}
-                                    <p>
-                                    Invalid login
-                                    </p>
-                              {% endif %}
+                                <p>
+                                     {{ register_form.email.error }}
+                                </p>
                               <form action="{% url 'register' %}" method="post" >
                                     {% csrf_token %}
                                     <!-- <label for="name">Choose a username:<strong style="color:red;">{{ register_form.name.errors }}</strong></label>
@@ -44,21 +42,21 @@
                                                 <button type="submit" class="shadowbox" value="Sign me Up" style="min-width:100%;">Submit</button>
                                           </div>
                                     </div>
-                                    <div class="row"> 
+                                    <div class="row">
                                           <div class="columns small-12">
                                                 <button type="button" class="shadowbox" onclick="javascript:window.location='{% url 'index' %}';" style="background-color:#FF4747;min-width:100%;">Cancel</button>
                                           </div>
                                     </div>
 
                                     <br>
-                                    <strong >
-                                                Already have an account??
-                                          </strong>
-                                          <br>
-                                          <br>
-                                          <p >
-                                          Click to <a href="{% url 'login_view' %}">Login</a> here
-                                          </p>
+                                    <!--<strong >-->
+                                    <!--            Already have an account??-->
+                                    <!--      </strong>-->
+                                    <!--      <br>-->
+                                    <!--      <br>-->
+                                    <!--      <p >-->
+                                    <!--      Click to <a href="{% url 'login_view' %}">Login</a> here-->
+                                    <!--      </p>-->
                               </form>
                         </div>
                   </div>

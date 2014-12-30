@@ -3,9 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse  # Http404
 from django.core.urlresolvers import reverse
 from appsoc.forms import RegisterForm, LoginForm
 # permission_required, user_passes_test
-from django.contrib.auth.decorators import login_required
 from mongoengine.django.auth import User
-from django.core.exceptions import ValidationError
 from django.contrib.auth import login, logout
 from mongoengine.queryset import DoesNotExist
 
@@ -24,10 +22,6 @@ def github(request):
 
 
 def register(request):
-    if request.method == 'GET':
-        if request.user.is_authenticated():
-            logout(request)
-
     register_form = RegisterForm()
     color = params.colors['register']
 
