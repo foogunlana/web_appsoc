@@ -1,65 +1,62 @@
 {% extends 'appsoc/base.html' %}
 {% block title %}Sign Up -{% endblock %}
 {% block body_block %}
-      {% if success %}
-            <div class="row heading" style='min-height:400px;'>
-                  <div class=" columns small-12 small-centered">
-                        <h3 style='color:white;font-weight:lighter;padding:10%;'>
-                        {{ success }}
-                        </h3>
+      <div class="row section1">
+            <div class="small-12 medium-4 large-4 medium-centered columns">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <div class = "popup">
+                        <h4 >Sign up to the App Society</h4>
+                        <h4 style=" font-size:15px; color:green">Imperial College students</h4>
+                        {% for error in errors %}
+                              <p>
+                              {{ error }}
+                              </p>
+                              {% empty %}
+                              <strong>
+                              <p style="color:blue;">
+                              {{ success }}
+                              </p>
+                              </strong>
+                        {% endfor %}
+                        <p>
+                        {{ register_form.email.error }}
+                        </p>
+                        <form action="{% url 'register' %}" method="post" >
+                              {% csrf_token %}
+                              <!-- <label for="name">Choose a username:<strong style="color:red;">{{ register_form.name.errors }}</strong></label>
+                              {{ register_form.name }} -->
+                              <label for="email">Email:<strong style="color:red;">{{ register_form.email.errors }}</strong></label>
+                              {{ register_form.email }}
+                              <!-- <label for="password">Password:<strong style="color:red;">{{ register_form.password.errors }}</strong></label>
+                              {{ register_form.password }}
+                              <label for="confirm">Confirm password:<strong style="color:red;">{{ register_form.confirm.errors }}</strong></label>
+                              {{ register_form.confirm }} -->
+                              <div class="row">
+                                    <div class="columns small-12">
+                                          <button type="submit" class="shadowbox" value="Sign me Up" style="min-width:100%;">Submit</button>
+                                    </div>
+                              </div>
+                              <div class="row">
+                                    <div class="columns small-12">
+                                          <button type="button" class="shadowbox" onclick="javascript:window.location='{% url 'index' %}';" style="background-color:#FF4747;min-width:100%;">Cancel</button>
+                                    </div>
+                              </div>
+                              <br>
+                              <!--<strong >-->
+                              <!--            Already have an account??-->
+                              <!--      </strong>-->
+                              <!--      <br>-->
+                              <!--      <br>-->
+                              <!--      <p >-->
+                              <!--      Click to <a href="{% url 'login_view' %}">Login</a> here-->
+                              <!--      </p>-->
+                        </form>
                   </div>
             </div>
-      {% else %}
-            <div class="row section1">
-                  <div class="small-12 medium-4 large-4 medium-centered columns">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <div class = "popup">
-                              <h4 >Sign up to the App Society</h4>
-                              <h4 style=" font-size:15px; color:green">Imperial College students</h4>
-                                <p>
-                                     {{ register_form.email.error }}
-                                </p>
-                              <form action="{% url 'register' %}" method="post" >
-                                    {% csrf_token %}
-                                    <!-- <label for="name">Choose a username:<strong style="color:red;">{{ register_form.name.errors }}</strong></label>
-                                    {{ register_form.name }} -->
-
-                                    <label for="email">Email:<strong style="color:red;">{{ register_form.email.errors }}</strong></label>
-                                    {{ register_form.email }}
-
-                                    <!-- <label for="password">Password:<strong style="color:red;">{{ register_form.password.errors }}</strong></label>
-                                    {{ register_form.password }}
-
-                                    <label for="confirm">Confirm password:<strong style="color:red;">{{ register_form.confirm.errors }}</strong></label>
-                                    {{ register_form.confirm }} -->
-                                    <div class="row">
-                                          <div class="columns small-12">
-                                                <button type="submit" class="shadowbox" value="Sign me Up" style="min-width:100%;">Submit</button>
-                                          </div>
-                                    </div>
-                                    <div class="row">
-                                          <div class="columns small-12">
-                                                <button type="button" class="shadowbox" onclick="javascript:window.location='{% url 'index' %}';" style="background-color:#FF4747;min-width:100%;">Cancel</button>
-                                          </div>
-                                    </div>
-
-                                    <br>
-                                    <!--<strong >-->
-                                    <!--            Already have an account??-->
-                                    <!--      </strong>-->
-                                    <!--      <br>-->
-                                    <!--      <br>-->
-                                    <!--      <p >-->
-                                    <!--      Click to <a href="{% url 'login_view' %}">Login</a> here-->
-                                    <!--      </p>-->
-                              </form>
-                        </div>
-                  </div>
-            </div>
-      {% endif %}
+      </div>
 {% endblock %}

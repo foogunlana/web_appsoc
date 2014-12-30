@@ -16,19 +16,19 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/foogunlana/appsoc/appsoc/templates",
+    "/home/folusoogunlana/Documents/webprogramming/appsoc/appsoc/templates",
 )
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    "/Users/folusoogunlana/Documents/webProgramming/appsoc/static",
+    "/Users/folusoogunlana/Documents/webprogramming/appsoc/static",
 )
 
 
@@ -83,6 +83,14 @@ MONGOENGINE_USER_DOCUMENT = 'mongoengine.django.auth.User'
 SESSION_ENGINE = 'mongoengine.django.sessions'
 SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
 
+DEV_URI = None
+PROD_URI = 'mongodb://foogunlana:Hoogland92@ds027491.mongolab.com:27491/appsoc'
+
+MONGO_URI = PROD_URI
+
+import mongoengine
+mongoengine.connect('appsoc', host=MONGO_URI)
+
 # MONGO ENGINE }
 
 MIDDLEWARE_CLASSES = (
@@ -105,8 +113,8 @@ WSGI_APPLICATION = 'appsoc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.dummy',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

@@ -6,6 +6,7 @@ from appsoc.forms import RegisterForm, LoginForm
 from mongoengine.django.auth import User
 from django.contrib.auth import login, logout
 from mongoengine.queryset import DoesNotExist
+from appsoc.models import Member
 
 from appsoc import params
 # import tasks
@@ -21,9 +22,8 @@ def github(request):
     return render(request, 'appsoc/github.html', {})
 
 
-def register(request):
+def register(request, **kwargs):
     register_form = RegisterForm()
-    color = params.colors['register']
 
     errors = []
 
@@ -32,27 +32,26 @@ def register(request):
 
         if register_form.is_valid():
             try:
-                # if register_form.cleaned_data['password'] != register_form.cleaned_data['confirm']:
-                #     raise ValidationError('Passwords do not match')
-
-                member = User()
-                # member.username = register_form.cleaned_data['name']
+                member = Member()
                 member.email = register_form.cleaned_data['email']
-                # member.password = str(register_form.cleaned_data['password'])
                 member.save()
-                return render(request, 'appsoc/register.html', {
-                    'register_form': register_form, 'success': 'You have successfully been added to the mailing list. We will contact you shortly'})
+                return HttpResponseRedirect(reverse('register_success', args=(), kwargs={'success': 'success'}))
 
             except Exception as e:
-                errors.append(str(e))
+                errors.append(e)
                 return render(request, 'appsoc/register.html', {
                     'register_form': register_form, 'errors': errors})
+        else:
+            return render(request, 'appsoc/register.html', {'register_form': register_form, 'errors': errors})
 
-    return render(request, 'appsoc/register.html', {
-        'register_form': register_form, 'errors': register_form.errors, 'color': color})
+    if kwargs.get('success', None):
+        success = 'You have successfully been added to the mailing list. We will contact you shortly'
+        print success
+    else:
+        success = ''
 
     register_form = RegisterForm()
-    return render(request, 'appsoc/register.html', {'register_form': register_form, 'color': color})
+    return render(request, 'appsoc/register.html', {'register_form': register_form, 'errors': errors, 'success': success})
 
 
 def login_view(request):
