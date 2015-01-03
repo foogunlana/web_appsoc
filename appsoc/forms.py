@@ -32,7 +32,9 @@ class RegisterForm(forms.Form):
         for component in params.imperial_college_email_components:
             if component in email_address:
                 return email
-        raise ValidationError("Email not an Imperial College address")
+        print "Non Imperial email allowed"
+        return email
+        # raise ValidationError("Email not an Imperial College address")
 
 
 class LoginForm(forms.Form):
