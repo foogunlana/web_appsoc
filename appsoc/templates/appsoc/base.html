@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="/static/css/foundation.css">
         <link rel="icon" type="image/ico" href="/static/images/favicon.png"></link>
         <link rel="shortcut icon" href="/static/images\favicon.png">
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <link rel="stylesheet" href="/static/css/appsoc.css">
         <script src="/static/js/vendor/modernizr.js"></script>
 
@@ -17,7 +19,8 @@
         }
         </style>
     </head>
-    <body>
+    <body class={%if events %}"events"{% else %}"normal_body"{% endif %}>
+        
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -27,8 +30,9 @@
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="fixed">
-            <nav class="top-bar " data-topbar role="navigation">
+
+        <div class="fixed" style="background-color:black;">
+            <nav class="top-bar "  style="background-color:black;" data-topbar role="navigation">
                 <ul class="title-area">
                     <li class="name ">
                         <h1><a href="{% url 'index' %}">AppSoc</a></h1>
@@ -36,20 +40,21 @@
                     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
                 </ul>
                 <section class="top-bar-section">
-                    <ul class="right">
-                        <li><a href="{% url 'index' %}" class = "top-tab">Home</a></li>
-                        <li><a href="{% url 'learn' %}" class = "top-tab">Learn</a></li>
-                        <li><a href="{% url 'github' %}" class = "top-tab">Hub</a></li>
-                        <li><a href="{% url 'register' %}" style="border-radius:3px;background-color:#2980F0;" class = "top-tab">Sign Up</a></li>
+                    <ul class="right" >
+                        <li><a href="{% url 'index' %}" style="background-color:black;" >Home</a></li>
+                        <li><a href="{% url 'learn' %}" style="background-color:black;" >Learn</a></li>
+                        <li><a href="{% url 'github' %}" style="background-color:black;" >Hub</a></li>
+                        <li><a href="{% url 'events' %}" style="background-color:black;" >Events</a></li>
+                        <li><a href="{% url 'register' %}" style="border-radius:3px;background-color:#2980F0;">Sign Up</a></li>
                         <li>
                         </li>
-                        <li class="has-dropdown">
-                            <a href="#">About Us</a>
+                        <li class="has-dropdown" >
+                            <a href="#" style="background-color:black;">About Us</a>
 
-                            <ul class="dropdown">
-                                <li><a href="{% url 'about' %}">Who we are</a></li>
-                                <li><a href="{% url 'contact' %}">Find/Talk to us</a></li>
-                                <li><a href="https://www.facebook.com/groups/197108390473166/">Find us on Facebook</a></li>
+                            <ul class="dropdown" style="background-color:black;">
+                                <li><a href="{% url 'about' %}" style="background-color:black;">Who we are</a></li>
+                                <li><a href="{% url 'contact' %}" style="background-color:black;">Find/Talk to us</a></li>
+                                <li><a href="https://www.facebook.com/groups/197108390473166/" style="background-color:black;">Find us on Facebook</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -57,11 +62,56 @@
             </nav>
         </div>
         {% block body_block %}{% endblock %}
+
+        {% if events %}
+        <div class = "row section3">
+            <div class="columns small-6 small-centered">
+                <div class="row" style="color:white;">
+                    <br>
+                    <br>
+                    <div class="columns small-12 medium-6 large-4">
+                        <br><br>
+                        <ul>
+                            <li><strong><a href="{% url 'about' %}">About Us</a></strong> </li>
+                            <li><strong><a href="{% url 'contact' %}">Contact Us</a></strong></li>
+                            <li><strong><a href="{% url 'register' %}">Sign Up</a></strong></li>
+                        </ul>
+                    </div>
+                    <div class="columns small-12 medium-6 large-4">
+                        <br>
+                        <br>
+                        <ul>
+                            <li><strong><a href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401">Find us</a></strong> on Facebook</li>
+                            <li><strong><a href="{% url 'learn' %}">Learn </a></strong>to code</li>
+                        </ul>
+                        <br>
+                        <br>
+                        <div class="fb-like" data-href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401" data-width="20" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="columns hide-for-small hide-for-medium large-4 ">
+                        <br>
+                        <br>
+                        Royal School of Mines Building,
+                        Imperial College London,
+                        Prince Consort Road,
+                        South Kensington,
+                        London SW7 2BP
+                        United Kingdom
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
         <div class = "row section1">
             <div class="columns small-6 small-centered">
                 <div class="row">
-                    <br>
-                    <br>
                     <br>
                     <br>
                     <div class="columns small-12 medium-6 large-4">
@@ -105,7 +155,8 @@
                 </div>
             </div>
         </div>
-    </div>
+        {% endif %}
+
     <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/foundation.min.js"></script>
     <script>

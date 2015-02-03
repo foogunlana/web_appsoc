@@ -18,6 +18,10 @@ urlpatterns = patterns('',
                            name='logout_view'),
                        url(r'^bank/$', views.bank, name='bank'),
                        url(r'^learn/$', views.learn, name='learn'),
+                       url(r'^events/$',
+                           views.events, name='events'),
+                       url(r'^events/(?P<success>[a-zA-Z]+)/$',
+                           views.events, name='events_success'),
                        )
 
 

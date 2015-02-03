@@ -1791,6 +1791,7 @@ meta.foundation-mq-topbar {
         position: relative;
         top: -1px; } }
   .top-bar .title-area {
+    background-color: black;
     position: relative;
     margin: 0; }
   .top-bar .name {

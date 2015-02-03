@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse  # Http404
 from django.core.urlresolvers import reverse
-from appsoc.forms import RegisterForm, LoginForm
+from appsoc.forms import RegisterForm, LoginForm, EventsRegisterForm
 # permission_required, user_passes_test
 from mongoengine.django.auth import User
 from django.contrib.auth import login, logout
@@ -91,6 +91,34 @@ def logout_view(request):
     login_form = LoginForm()
     context = {'login_form': login_form}
     return render(request, 'forum/login_view.html', context)
+
+
+def events(request, **kwargs):
+    message = ''
+    if request.method == "POST":
+        register_form = EventsRegisterForm(request.POST)
+        if register_form.is_valid():
+            try:
+                member = Member()
+                member.email = register_form.cleaned_data['email']
+                member.event = 'GSA'
+                member.save()
+                print 'hellow'
+                return HttpResponseRedirect(reverse('events_success', args=(), kwargs={'success': True}))
+
+            except Exception as e:
+                message = str(e)
+                return HttpResponseRedirect(reverse('events'))
+        else:
+            message = register_form['email'].errors
+            print message
+            return HttpResponseRedirect(reverse('events'))
+
+    if kwargs.get("success", None):
+        print 'success'
+        message = "Success! We have saved your email address and will keep you posted"
+    register_form = EventsRegisterForm()
+    return render(request, 'appsoc/events.html', {'events': True, 'message': message, 'register_form': register_form})
 
 
 def about(request):

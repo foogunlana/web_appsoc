@@ -1,0 +1,116 @@
+{% extends 'appsoc/base.html' %}
+{% block title %}Events{% endblock %}
+{% block body_block %}
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		</head>
+		<div class="trans_view">
+			<div class="row">
+				<div class="columns small-12 medium-7 large-5 small-centered">
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<h1 style="color:white;font-family:'Lato';font-weight:lighter;">
+					Android Boot Camp
+					<p>
+					Launch: <font color="#008cba">Monday, 9th February</font>
+					</p>
+					</h1>
+					<div class="appsoc_container">
+						{% if message %}
+							<font color="#008cba">{{ message }}</font>
+						{% endif %}
+						<h6 style="text-align:left;color:white;">
+						email
+						</h6>
+						<form action="{% url 'events' %}" method="post">
+							{% csrf_token %}
+							<p>
+							{{ register_form.email }}
+							</p>
+							<button class="button" style="font-family:'Lato';font-weight:lighter;font-size:18px;">
+							Let us know you're coming
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row events_heading">
+			<div class="columns small-12 medium-12 large-6" >
+				<div style="color:#cfcfcf;padding:30px;">
+					<h1 style='font-size:60px;color:white;font-weight:lighter;'>
+					7 week programme
+					</h1>
+					<br>
+					<p>
+					Develop the skills to build an Android app from developers with 4+ years of experience
+					</p>
+					<p>
+					Get access to tonnes of online android developer content for FREE
+					</p>
+					<p>
+					Get the chance to gain a Google certificate on completing the course!
+					</p>
+				</div>
+			</div>
+			<div class="columns small-12 medium-4" >
+				<div style="color:#cfcfcf;padding-top:30px;padding-left:60px;padding-right:0px;">
+					<img src="/static/images/GSAIcon.png" alt="">
+				</div>
+			</div>
+			<div class="columns small-12">
+				<h6 style="float:right;color:white;color:#008cba;font-weight:lighter;">
+				Powered by AppSoc & Google Student Ambassador programme
+				</h6>
+			</div>
+		</div>
+		<div class="transparent_section">
+			<div class="row">
+				<br>
+				<br>
+				<br>
+				<div class="columns small-12 medium-3 medium-offset-3">
+					<div class="appsoc_container" style="height:200px;">
+						<div>
+							<br>
+							<h6 style="color:white;font-weight:lighter;">
+							Subscribe to AppSoc's mailing list
+							</h6>
+							<br>
+							<form method="get" action="{% url 'register' %}">
+								<button class="button" type="submit">
+								Sign Up
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="columns small-12 medium-3 left ">
+					<div class="appsoc_container" style="height:200px;">
+						<div>
+							<br>
+							<h6 style="color:white;font-weight:lighter;">
+							Want to know more about this event?
+							</h6>
+							<br>
+							<form method="get" action="https://www.facebook.com/groups/197108390473166/">
+								<button class="button" type="submit">
+								Ask a question
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
+		<script> $.validate();</script>
+	{% endblock %}
