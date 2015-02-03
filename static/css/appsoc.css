@@ -33,7 +33,7 @@ font-size: 15px;
 .transparent_section{
   background-color: rgba(0,0,0,0.5);
   color:white;
-  height:65%;
+  min-height:50%;
 }
 
 input[type='text'].trans_input{
