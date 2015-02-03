@@ -17,7 +17,7 @@
 					<br>
 					<br>
 					<br>
-					<h1 style="color:white;font-family:'Lato';">
+					<h1 style="color:white;font-family:'Lato';text-align:center">
 					Android Boot Camp
 					<p>
 					Launch: <font color="#008cba">Monday, 9th February</font>
@@ -30,12 +30,12 @@
 						<h6 style="text-align:left;color:white;font-size:18px;font-weight:lighter;font-family:'Lato'">
 						Your email
 						</h6>
-						<form action="{% url 'events' %}" method="post">
+						<form id="email_form" action="{% url 'events' %}" method="post">
 							{% csrf_token %}
 							<p>
 							{{ register_form.email }}
 							</p>
-							<button class="button" style="font-family:'Lato';font-weight:lighter;font-size:18px;">
+							<button type="submit" class="button email_form_button" style="font-family:'Lato';font-weight:lighter;font-size:18px;">
 							Let us know you're coming
 							</button>
 						</form>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="row events_heading">
-			<div class="columns small-12 medium-12 large-6" >
+			<div class="columns small-12 medium-12 large-6 small-centered medium-uncentered" >
 				<div style="color:#cfcfcf;padding:30px;">
 					<h1 style='font-size:60px;color:white;font-weight:lighter;'>
 					7 week programme
@@ -61,24 +61,25 @@
 					</p>
 				</div>
 			</div>
-			<div class="columns small-12 medium-4" >
-				<div style="color:#cfcfcf;padding-top:30px;padding-left:60px;padding-right:0px;">
+			<div class="columns small-12 medium-4 small-centered medium-uncentered" >
+				<div style="color:#cfcfcf;padding-top:30px;">
 					<img src="/static/images/GSAIcon.png" alt="">
 				</div>
 			</div>
-			<div class="columns small-12">
+			<div class="columns small-12 small-centered medium-uncentered">
 				<h6 style="float:right;color:white;color:#008cba;font-weight:lighter;">
 				Powered by AppSoc & Google Student Ambassador programme
 				</h6>
 			</div>
 		</div>
-		<div class="transparent_section">
+		<div class="transparent_section" >
 			<div class="row">
 				<br>
 				<br>
-				<br>
-				<div class="columns small-12 medium-3 medium-offset-3">
-					<div class="appsoc_container" style="height:200px;">
+				<div class="columns small-12 medium-4 medium-offset-2 large-3 large-offset-3 small-centered medium-uncentered">
+					<br>
+					<br>
+					<div class="appsoc_container" style="height:220px;">
 						<div>
 							<br>
 							<h6 style="color:white;font-weight:lighter;font-size:20px;">
@@ -92,9 +93,12 @@
 							</form>
 						</div>
 					</div>
+					<br>
 				</div>
-				<div class="columns small-12 medium-3 left ">
-					<div class="appsoc_container" style="height:200px;">
+				<div class="columns small-12 medium-4 large-3 left small-centered medium-uncentered">
+					<br>
+					<br>
+					<div class="appsoc_container" style="height:220px;">
 						<div>
 							<br>
 							<h6 style="color:white;font-weight:lighter;font-size:20px;">
@@ -108,9 +112,16 @@
 							</form>
 						</div>
 					</div>
+					<br>
 				</div>
 			</div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
-		<script> $.validate();</script>
+		<script>
+				$.validate({
+					focusInvalid: false,
+					onkeyup: false,
+				});
+		</script>
 	{% endblock %}
