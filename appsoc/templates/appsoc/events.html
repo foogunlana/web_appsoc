@@ -1,5 +1,5 @@
 {% extends 'appsoc/base.html' %}
-{% block title %}Events{% endblock %}
+{% block title %}Events-{% endblock %}
 {% block body_block %}
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -17,7 +17,7 @@
 					<br>
 					<br>
 					<br>
-					<h1 style="color:white;font-family:'Lato';font-weight:lighter;">
+					<h1 style="color:white;font-family:'Lato';">
 					Android Boot Camp
 					<p>
 					Launch: <font color="#008cba">Monday, 9th February</font>
@@ -27,8 +27,8 @@
 						{% if message %}
 							<font color="#008cba">{{ message }}</font>
 						{% endif %}
-						<h6 style="text-align:left;color:white;">
-						email
+						<h6 style="text-align:left;color:white;font-size:18px;font-weight:lighter;font-family:'Lato'">
+						Your email
 						</h6>
 						<form action="{% url 'events' %}" method="post">
 							{% csrf_token %}
@@ -81,13 +81,13 @@
 					<div class="appsoc_container" style="height:200px;">
 						<div>
 							<br>
-							<h6 style="color:white;font-weight:lighter;">
-							Subscribe to AppSoc's mailing list
+							<h6 style="color:white;font-weight:lighter;font-size:20px;">
+							Are you subscribed to our mailing list?
 							</h6>
 							<br>
 							<form method="get" action="{% url 'register' %}">
 								<button class="button" type="submit">
-								Sign Up
+								Add me!
 								</button>
 							</form>
 						</div>
@@ -97,13 +97,13 @@
 					<div class="appsoc_container" style="height:200px;">
 						<div>
 							<br>
-							<h6 style="color:white;font-weight:lighter;">
+							<h6 style="color:white;font-weight:lighter;font-size:20px;">
 							Want to know more about this event?
 							</h6>
 							<br>
-							<form method="get" action="https://www.facebook.com/groups/197108390473166/">
+							<form method="get" action="https://www.facebook.com/events/1539387879660472/?context=create&previousaction=create&source=49&sid_create=2224606954">
 								<button class="button" type="submit">
-								Ask a question
+								Go to page
 								</button>
 							</form>
 						</div>
