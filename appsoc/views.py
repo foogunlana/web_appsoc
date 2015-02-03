@@ -6,7 +6,7 @@ from appsoc.forms import RegisterForm, LoginForm, EventsRegisterForm
 from mongoengine.django.auth import User
 from django.contrib.auth import login, logout
 from mongoengine.queryset import DoesNotExist
-from appsoc.models import Member
+from appsoc.models import Member, Gsa
 
 from appsoc import params
 # import tasks
@@ -99,23 +99,23 @@ def events(request, **kwargs):
         register_form = EventsRegisterForm(request.POST)
         if register_form.is_valid():
             try:
-                member = Member()
+                member = Gsa()
                 member.email = register_form.cleaned_data['email']
                 member.event = 'GSA'
                 member.save()
                 print 'hellow'
-                return HttpResponseRedirect(reverse('events_success', args=(), kwargs={'success': True}))
+                return HttpResponseRedirect(reverse('events_success', args=(), kwargs={'success': 'success'}))
 
             except Exception as e:
                 message = str(e)
-                return HttpResponseRedirect(reverse('events'))
+                render(request, 'appsoc/events.html',
+                       {'events': True, 'message': message, 'register_form': register_form})
         else:
             message = register_form['email'].errors
-            print message
-            return HttpResponseRedirect(reverse('events'))
+            render(request, 'appsoc/events.html',
+                   {'events': True, 'message': message, 'register_form': register_form})
 
     if kwargs.get("success", None):
-        print 'success'
         message = "Success! We have saved your email address and will keep you posted"
     register_form = EventsRegisterForm()
     return render(request, 'appsoc/events.html', {'events': True, 'message': message, 'register_form': register_form})

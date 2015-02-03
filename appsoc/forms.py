@@ -46,7 +46,7 @@ class EventsRegisterForm(forms.Form):
     def clean_email(self):
         client = MongoClient(params.MONGO_URI)
         email = self.cleaned_data['email']
-        if email in client.appsoc.member.distinct('email'):
+        if email in client.appsoc.gsa.distinct('email'):
             raise ValidationError("Email already exists")
         email_address = str(email)
         for component in params.imperial_college_email_components:
