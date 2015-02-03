@@ -40,7 +40,7 @@ class RegisterForm(forms.Form):
 class EventsRegisterForm(forms.Form):
     alphanumeric = RegexValidator(
         r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
-    email = forms.EmailField(label='Your email', max_length=50, required=True,
+    email = forms.EmailField(label='', max_length=50, required=True,
                              widget=forms.TextInput(attrs={'class': 'trans_input', 'data-validation': 'email'}))
 
     def clean_email(self):
