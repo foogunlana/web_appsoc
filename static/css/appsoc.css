@@ -54,6 +54,25 @@ input[type="text"].trans_input:focus{
   border-color: transparent;
 }
 
+input[type='text'].trans_input_ios{
+  background-color: transparent;
+  border-radius: 5px;
+  border-width: 1px;
+  color: black;
+}
+
+input[type='text'].trans_input_ios:hover{
+  background-color: transparent;
+}
+
+input[type="text"].trans_input_ios:focus{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+
+
+
 .button{
   width:100%;
   color:white;
@@ -81,9 +100,7 @@ font-weight: lighter;
   border-color: white;
 }
 
-
-
-.events{
+.events_abc{
   background-color: black;
   background: url('/static/images/android.jpg') center;
   background-repeat: no-repeat;
@@ -93,6 +110,55 @@ font-weight: lighter;
   -moz-background-size: cover;
   -o-background-size: cover;
   
+}
+
+.events_ios{
+  background-color: black;
+  background: url('/static/images/ios4.jpg') center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  
+}
+
+.appsoc_trans_view_ios{
+  background-color: rgba(0,0,0,0.5);
+  color:white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.appsoc_container_ios{
+  background-color: rgba(255,255,255,0.2);
+  color: black;
+  border-radius: 10px;
+  max-width: 100%;
+  padding:20px;
+  text-align: center;
+}
+
+.transparent_section_ios{
+  background-color: rgba(0,0,0,0.6);
+  color:black;
+  min-height:50%;
+}
+
+.takeaways p{
+  color: black;
+}
+
+.events_heading_ios{
+  background-color: rgba(255,255,255,0.6);
+  color: black;
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+  min-height: 400px;
 }
 
 button{
@@ -138,8 +204,6 @@ border-color: #efefef;
   max-width: initial;
   height: 400px;
 }
-
-
 
 .events_heading{
   background-color: rgba(0,0,0,0.9);
@@ -227,6 +291,15 @@ max-width: initial;
 
 .section3{
 background-color:rgba(0,0,0,0.9);
+min-height:400px;
+width:100%;
+margin-left: auto;
+margin-right: auto;
+max-width: initial;
+}
+
+.section4{
+background-color:rgba(255,255,255,0.6);
 min-height:400px;
 width:100%;
 margin-left: auto;

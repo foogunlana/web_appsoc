@@ -6,7 +6,7 @@ from appsoc.forms import RegisterForm, LoginForm, EventsRegisterForm
 from mongoengine.django.auth import User
 from django.contrib.auth import login, logout
 from mongoengine.queryset import DoesNotExist
-from appsoc.models import Member, Gsa
+from appsoc.models import Member, Gsa, IOS
 
 from appsoc import params
 # import tasks
@@ -93,7 +93,7 @@ def logout_view(request):
     return render(request, 'forum/login_view.html', context)
 
 
-def events(request, **kwargs):
+def abc(request, **kwargs):
     message = ''
     if request.method == "POST":
         register_form = EventsRegisterForm(request.POST)
@@ -103,22 +103,48 @@ def events(request, **kwargs):
                 member.email = register_form.cleaned_data['email']
                 member.event = 'GSA'
                 member.save()
-                print 'hellow'
-                return HttpResponseRedirect(reverse('events_success', args=(), kwargs={'success': 'success'}))
+                return HttpResponseRedirect(reverse('abc_success', args=(), kwargs={'success': 'success'}))
 
             except Exception as e:
                 message = str(e)
-                render(request, 'appsoc/events.html',
+                render(request, 'appsoc/abc.html',
                        {'events': True, 'message': message, 'register_form': register_form})
         else:
             message = register_form['email'].errors
-            render(request, 'appsoc/events.html',
+            render(request, 'appsoc/abc.html',
                    {'events': True, 'message': message, 'register_form': register_form})
 
     if kwargs.get("success", None):
         message = "Success! We have saved your email address and will keep you posted"
     register_form = EventsRegisterForm()
-    return render(request, 'appsoc/events.html', {'events': True, 'message': message, 'register_form': register_form})
+    return render(request, 'appsoc/abc.html', {'events_abc': True, 'message': message, 'register_form': register_form})
+
+
+def ios(request, **kwargs):
+    message = ''
+    if request.method == "POST":
+        register_form = EventsRegisterForm(request.POST)
+        if register_form.is_valid():
+            try:
+                member = IOS()
+                member.email = register_form.cleaned_data['email']
+                member.event = 'iOS'
+                member.save()
+                return HttpResponseRedirect(reverse('ios_success', args=(), kwargs={'success': 'success'}))
+
+            except Exception as e:
+                message = str(e)
+                render(request, 'appsoc/ios.html',
+                       {'events': True, 'message': message, 'register_form': register_form})
+        else:
+            message = register_form['email'].errors
+            render(request, 'appsoc/ios.html',
+                   {'events': True, 'message': message, 'register_form': register_form})
+
+    if kwargs.get("success", None):
+        message = "Success! We have saved your email address and will keep you posted"
+    register_form = EventsRegisterForm(event="ios")
+    return render(request, 'appsoc/ios.html', {'events_ios': True, 'message': message, 'register_form': register_form})
 
 
 def about(request):

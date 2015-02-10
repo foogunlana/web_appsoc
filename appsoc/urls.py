@@ -6,7 +6,7 @@ from appsoc import views
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
-                       url(r'^$', views.events, name='events'),
+                       url(r'^$', views.abc, name='abc'),
                        url(r'^home/$', views.index, name='index'),
                        url(r'^about/$', views.about, name='about'),
                        url(r'^hub/$', views.github, name='github'),
@@ -19,10 +19,14 @@ urlpatterns = patterns('',
                            name='logout_view'),
                        url(r'^bank/$', views.bank, name='bank'),
                        url(r'^learn/$', views.learn, name='learn'),
-                       url(r'^events/$',
-                           views.events, name='events'),
-                       url(r'^events/(?P<success>[a-zA-Z]+)/$',
-                           views.events, name='events_success'),
+                       url(r'^events/abc/$',
+                           views.abc, name='abc'),
+                       url(r'^events/abc/(?P<success>[a-zA-Z]+)/$',
+                           views.abc, name='abc_success'),
+                       url(r'^events/ios/$',
+                           views.ios, name='ios'),
+                       url(r'^events/ios/(?P<success>[a-zA-Z]+)/$',
+                           views.ios, name='ios_success'),
                        )
 
 

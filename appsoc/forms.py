@@ -43,16 +43,23 @@ class EventsRegisterForm(forms.Form):
     email = forms.EmailField(label='', max_length=50, required=True,
                              widget=forms.TextInput(attrs={'class': 'trans_input', 'data-validation': 'email'}))
 
+    def __init__(self, *args, **kwargs):
+        event = kwargs.pop('event', None)
+        super(EventsRegisterForm, self).__init__(*args, **kwargs)
+        if event == 'ios':
+            self.fields['email'] = forms.EmailField(
+                label='', max_length=50, required=True,
+                widget=forms.TextInput(attrs={'class': 'trans_input_ios', 'data-validation': 'email'}))
+
     def clean_email(self):
         client = MongoClient(params.MONGO_URI)
         email = self.cleaned_data['email']
-        if email in client.appsoc.gsa.distinct('email'):
-            raise ValidationError("Email already exists")
+        if email in (client.appsoc.gsa.distinct('email') + client.appsoc.i_o_s.distinct('email')):
+            raise ValidationError("You've signed up previously :)")
         email_address = str(email)
         for component in params.imperial_college_email_components:
             if component in email_address:
                 return email
-        print "Non Imperial email allowed"
         return email
         # raise ValidationError("Email not an Imperial College address")
 

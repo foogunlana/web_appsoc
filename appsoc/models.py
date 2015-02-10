@@ -9,3 +9,8 @@ class Member(Document):
 class Gsa(Document):
     event = StringField(required=False)
     email = StringField(required=True)
+
+
+class IOS(Document):
+    event = StringField(required=False)
+    email = StringField(required=True)

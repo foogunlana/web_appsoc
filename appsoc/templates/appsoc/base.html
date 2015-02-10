@@ -18,7 +18,7 @@
         }
         </style>
     </head>
-    <body class={%if events %}"events"{% else %}"normal_body"{% endif %}>
+    <body class={%if events_abc %}"events_abc"{% elif events_ios %}"events_ios"{% else %}"normal_body"{% endif %}>
         
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -43,7 +43,8 @@
                         <li><a href="{% url 'index' %}" style="background-color:black;" >Home</a></li>
                         <li><a href="{% url 'learn' %}" style="background-color:black;" >Learn</a></li>
                         <li><a href="{% url 'github' %}" style="background-color:black;" >Hub</a></li>
-                        <li><a href="{% url 'events' %}" style="background-color:black;" >Events</a></li>
+                        <li><a href="{% url 'abc' %}" style="background-color:black;" >ABC</a></li>
+                        <li><a href="{% url 'ios' %}" style="background-color:black;" >iOS</a></li>
                         <li><a href="{% url 'register' %}" style="border-radius:3px;background-color:#2980F0;">Sign Up</a></li>
                         <li>
                         </li>
@@ -62,10 +63,10 @@
         </div>
         {% block body_block %}{% endblock %}
 
-        {% if events %}
-        <div class = "row section3">
+        
+        <div class = "row {% if events_abc %}section3{% elif events_ios %}section4{% else %}section1{% endif %}">
             <div class="columns small-6 small-centered">
-                <div class="row" style="color:white;">
+                <div class="row" {% if events_abc %}style="color:white;"{% elif events_ios %}style="color:black;"{% endif %}>
                     <br>
                     <br>
                     <div class="columns small-12 medium-6 large-4">
@@ -107,54 +108,7 @@
                 </div>
             </div>
         </div>
-        {% else %}
-        <div class = "row section1">
-            <div class="columns small-6 small-centered">
-                <div class="row">
-                    <br>
-                    <br>
-                    <div class="columns small-12 medium-6 large-4">
-                        <h4>
-                        AppSoc
-                        </h4>
-                        <ul>
-                            <li><strong><a href="{% url 'about' %}">About Us</a></strong> </li>
-                            <li><strong><a href="{% url 'contact' %}">Contact Us</a></strong></li>
-                            <li><strong><a href="{% url 'register' %}">Sign Up</a></strong></li>
-                        </ul>
-                    </div>
-                    <div class="columns small-12 medium-6 large-4">
-                        <br>
-                        <br>
-                        <ul>
-                            <li><strong><a href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401">Find us</a></strong> on Facebook</li>
-                            <li><strong><a href="{% url 'learn' %}">Learn </a></strong>to code</li>
-                        </ul>
-                        <br>
-                        <br>
-                        <div class="fb-like" data-href="https://www.facebook.com/pages/Imperial-App-Society/806202166060401" data-width="20" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-
-                    <div class="columns hide-for-small hide-for-medium large-4 ">
-                        <br>
-                        <br>
-                        Royal School of Mines Building,
-                        Imperial College London,
-                        Prince Consort Road,
-                        South Kensington,
-                        London SW7 2BP
-                        United Kingdom
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+        
 
 
     <script src="/static/js/foundation.min.js"></script>
