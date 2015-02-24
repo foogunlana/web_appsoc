@@ -6,7 +6,7 @@ from appsoc import views
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
-                       url(r'^$', views.abc, name='abc'),
+                       url(r'^$', views.ios, name='ios'),
                        url(r'^home/$', views.index, name='index'),
                        url(r'^about/$', views.about, name='about'),
                        url(r'^hub/$', views.github, name='github'),
